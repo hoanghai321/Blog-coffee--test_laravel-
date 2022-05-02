@@ -19,7 +19,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post = Post::all();
+        $post = Post::with('category')->get();
         return view('Admin.posts.index', compact('post'));
     }
 

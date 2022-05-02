@@ -42,7 +42,7 @@
                             <td><img width="100px" src="{{$a->image}}"/></td>
                             <td>{{$a->short_desc}}</td>
                             <td>{{$a->desc}}</td>
-                            <td>{{$a->post_category_id}}</td>
+                            <td>{{$a->category->title}}</td>
                             <td>
                                 <form action="{{route('category.show', [$a->id])}}" method="GET">
                                     @method('GET')

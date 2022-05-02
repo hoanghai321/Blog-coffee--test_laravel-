@@ -24,8 +24,8 @@ Auth::routes();
 Route::resource('/', HomeController::class)->middleware('role');
 Route::get('single', [HomeController::class, 'single'])->name('single');
 Route::get('about', [HomeController::class, 'about'])->name('about');
-Route::resource('category', CategoryPostController::class);
-Route::resource('post', PostController::class);
+Route::resource('category', CategoryPostController::class)->middleware('role2');
+Route::resource('post', PostController::class)->middleware('role2');
 
 
 

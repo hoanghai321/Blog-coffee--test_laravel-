@@ -4,7 +4,6 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class Role2
 {
@@ -17,14 +16,13 @@ class Role2
      */
     public function handle(Request $request, Closure $next)
     {
-        $checklogin = Auth::check();
-        if($checklogin){
-            if(auth()->user()->role == 'admin'){
-                return redirect('api/category');
-            }
+        $checkrole = auth()->user()->role;
+        if($checkrole == "admin"){
+            return $next($request);
         }
         else{
-            return redirect('/login');
+            return response()->view('User.Index');
         }
+        
     }
 }
